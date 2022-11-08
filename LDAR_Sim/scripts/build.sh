@@ -1,6 +1,11 @@
 #!/bin/sh
 rm -rf build
-mkdir -p build/{inputs,sim_test,src} 
+mkdir -p build 
+cd build 
+mkdir -p src 
+mkdir -p inputs 
+mkdir -p sim_test
+cd .. 
 cp ./src/* build/src
 cp ./src/* build/inputs
 cp ./src/* build/sim_test
