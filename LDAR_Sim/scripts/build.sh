@@ -10,4 +10,4 @@ pipenv requirements > requirements.txt
 pip install -r requirements.txt --no-deps -t build
 rm -f ldar-sim.zip
 cd build
-zip -r ../ldar-sim.zip *
+zip -r ../ldar-sim.zip . -i *
