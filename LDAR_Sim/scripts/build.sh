@@ -1,13 +1,15 @@
 #!/bin/sh
 rm -rf build
-mkdir -p build/{inputs,sim_test,src} 
+mkdir -p build 
+cd build 
+mkdir -p src 
+mkdir -p inputs 
+mkdir -p sim_test
 cd .. 
-cp -r ./src/* scripts/build/src 
-cp -r ./inputs/* scripts/build/inputs
-cp -r ./sim_test/* scripts/build/sim_test
-cd scripts 
-pipenv requirements > requirements.txt
+cp -r ./src/. build/src 
+cp ./inputs/* build/inputs
+cp ./sim_test/* build/sim_test
+pipenv lock -r > requirements.txt
 pip install -r requirements.txt --no-deps -t build
 rm -f ldar-sim.zip
-cd build
-zip -r ../ldar-sim.zip *
+cd build; zip -r ../ldar-sim.zip *
